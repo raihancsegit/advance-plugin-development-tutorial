@@ -352,8 +352,22 @@ class Books_Management_Tool_Admin {
 					));	
 				}
 
+			}elseif($param == 'delete_book'){
+				$book_id = isset($_REQUEST['book_id']) ? $_REQUEST['book_id'] : 0;
+
+				if($book_id > 0){
+
+					$wpdb->delete($this->table_activator->wp_smc_tbl_books(),array(
+						"id" => $book_id
+					));
+
+					echo json_encode(array(
+						"status" => 1,
+						"message" => "Book List Delete successfully"
+					));
 			}
 		}
+	}
 
 		wp_die();
 

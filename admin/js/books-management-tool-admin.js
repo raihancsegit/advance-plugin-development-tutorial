@@ -68,6 +68,30 @@ jQuery("#frm-create-book").validate({
 		}
 	});
 
+	// delete book
+	jQuery(document).on("click", ".btn-delete-book", function(){
+
+		var book_id = jQuery(this).attr("data-id");
+		var conf = confirm("Are you sure want to detele?");
+		if(conf){
+		var postdata = "action=admin_ajax_request&param=delete_book&book_id="+book_id;
+
+				jQuery.post(ajaxurl, postdata, function(response){
+
+					var data = jQuery.parseJSON(response);
+
+						if(data.status == 1){
+
+							alert(data.message);
+
+							setTimeout(function(){
+								location.reload();
+							}, 1000);
+						}
+				});
+		}
+	});
+
 	//delete book shelf data
 
 	jQuery(document).on("click", ".btn-delete-book-shelf", function(){
