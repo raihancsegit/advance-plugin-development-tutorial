@@ -99,8 +99,8 @@ class Books_Management_Tool_Public {
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/books-management-tool-public.js', array( 'jquery' ), $this->version, false );
 
 		wp_localize_script($this->plugin_name, "smc_book",array(
-			"name" => "Online Web Tutor",
-			"author" => "Sanjay Kumar",
+			"name" => "Smart Coder",
+			"author" => "Raihan Islam",
 			"ajaxurl" => admin_url("admin-ajax.php")
 		));
 
@@ -131,22 +131,22 @@ class Books_Management_Tool_Public {
 		echo $template;
 	}
 
-	// public function handle_ajax_request_public(){
+	public function handle_ajax_request_public(){
 
-	// 	$param = isset($_REQUEST['param']) ? $_REQUEST['param'] : "";
+		$param = isset($_REQUEST['param']) ? $_REQUEST['param'] : "";
 
-	// 	if(!empty($param)){
+		if(!empty($param)){
 
-	// 		if($param == "first_ajax_request"){
+			if($param == "first_ajax_request"){
 
-	// 			echo json_encode(array(
-	// 				"status" => 1,
-	// 				"message" => "Successfully completed first ajax from frontend"
-	// 			));
-	// 		}
-	// 	}
+				echo json_encode(array(
+					"status" => 1,
+					"message" => "Successfully completed first ajax from frontend"
+				));
+			}
+		}
 
-	// 	wp_die();
-	// }
+		wp_die();
+	}
 
 }
